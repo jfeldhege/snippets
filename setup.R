@@ -1,0 +1,23 @@
+# Get snippets from github gists ------------------------------------------
+
+#install.packages("gistr")
+
+library(gistr)
+library(snippr)
+
+r_snippets_path <- usethis:::rstudio_config_path("snippets", "r.snippets")
+
+#https://gist.github.com/slopp/27903daaf9fbd41afc73442b600a7618
+slopp_snippets <- gist("27903daaf9fbd41afc73442b600a7618")
+
+snips <- snippr:::snippets_parse(slopp_snippets$files$r.snippets$content)
+
+snippet_add(name = "gg", snips$gg, language = "r", path = r_snippets_path)
+
+
+
+# Edit snippets file and save to project directory ------------------------
+
+
+usethis::edit_rstudio_snippets(type = "r")
+
