@@ -9,3 +9,12 @@ snippet gg
 	ggplot(${1:data}, aes(${2:aes})) + 
 	  geom_${3:geom}()
 
+snippet cnt_dsc
+	count(${1:var}) %>%
+	arrange(desc(n))
+
+snippet fltr_in
+	filter(${1:var} %in% ${2:var})
+
+snippet fltr_dtct
+	filter(str_detect(${1:var}, "${2:value}"))
